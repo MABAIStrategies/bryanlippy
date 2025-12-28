@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Bryan Lippy | Strategic Account Executive</title>
+    <meta content="Portfolio of Bryan Lippy, a Business Sales Leader and Client Transformation Expert with 14+ years of experience." name="description">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Custom Utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #cbd5e1;
+            z-index: 0;
+        }
+        
+        .timeline-dot {
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+
+        .skill-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Animation Classes */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Print Styles */
+        @media print {
+            @page {
+                margin: 0.5cm;
+                size: auto;
+            }
+            body {
+                background: white;
+                color: black;
+            }
+            #navbar, .no-print, #contact-form-container, .print-hidden, #export-fab {
+                display: none !important;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            .shadow-xl, .shadow-lg, .shadow-md {
+                box-shadow: none !important;
+            }
+            .bg-slate-50, .bg-blue-50 {
+                background-color: white !important; /* Save ink */
+            }
+            header {
+                min-height: auto;
+                padding-top: 2rem;
+            }
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300 print-hidden" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a class="flex items-center gap-2 group" href="#">
+                    <div class="w-10 h-10 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold text-xl group-hover:bg-blue-700 transition-colors">
+                        BL
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">Bryan Lippy</span>
+                </a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a class="text-slate-600 hover:text-blue-900 font-medium transition-colors" href="#about">About</a>
+                    <a class="text-slate-600 hover:text-blue-900 font-medium transition-colors" href="#experience">Experience</a>
+                    <a class="text-slate-600 hover:text-blue-900 font-medium transition-colors" href="#competencies">Competencies</a>
+                    <a class="px-5 py-2.5 bg-blue-900 text-white font-medium rounded-lg hover:bg-blue-800 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5" href="#contact">
+                        Contact Me
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100" id="mobile-menu-btn">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div class="md:hidden hidden bg-white border-t border-slate-100 absolute w-full" id="mobile-menu">
+            <div class="px-4 pt-2 pb-6 space-y-1 shadow-lg">
+                <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-blue-900 hover:bg-slate-50" href="#about">About</a>
+                <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-blue-900 hover:bg-slate-50" href="#experience">Experience</a>
+                <a class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-blue-900 hover:bg-slate-50" href="#competencies">Competencies</a>
+                <a class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold bg-blue-900 text-white hover:bg-blue-800" href="#contact">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden" id="hero">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0 print-hidden">
+            <img alt="Corporate Background" class="w-full h-full object-cover opacity-20" src="bptop1.jpg">
+            <div class="absolute inset-0 bg-gradient-to-b from-white/0 via-slate-50/50 to-slate-50"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center gap-12">
+            <!-- Text Content -->
+            <div class="flex-1 text-center md:text-left space-y-8 fade-in-section is-visible">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-800 font-semibold text-sm tracking-wide uppercase">
+                    <span class="material-symbols-outlined text-base">verified</span>
+                    Strategic Account Executive
+                </div>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                    Transforming Business <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600">Through Sales Leadership</span>
+                </h1>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto md:mx-0 leading-relaxed">
+                    Over 14 years of experience driving B2B revenue growth, leading high-performing teams, and delivering transformative technology solutions across mobility, cloud, and security.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start print-hidden">
+                    <a class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-900 text-white rounded-xl font-bold text-lg hover:bg-blue-800 transition-all shadow-lg hover:shadow-blue-900/20 transform hover:-translate-y-1" href="#contact">
+                        Let's Connect
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Key Metrics -->
+                <div class="pt-8 grid grid-cols-3 gap-6 border-t border-slate-200">
+                    <div>
+                        <div class="text-3xl font-bold text-slate-900">14+</div>
+                        <div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Years Exp</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-blue-700">240%</div>
+                        <div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Revenue Growth</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-slate-900">161%</div>
+                        <div class="text-sm font-medium text-slate-500 uppercase tracking-wide">To Target</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hero Visual / Profile Card -->
+            <div class="flex-1 w-full max-w-md relative fade-in-section is-visible" style="transition-delay: 200ms;">
+                <div class="relative bg-white p-2 rounded-3xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <!-- Profile Image Container -->
+                    <div class="bg-slate-100 rounded-2xl overflow-hidden aspect-[4/5] relative group">
+                        <img alt="Bryan Lippy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="lippyheadshot.jpg">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 to-transparent p-6 pt-20">
+                            <h3 class="text-white text-2xl font-bold">Bryan Lippy</h3>
+                            <p class="text-blue-200 font-medium">Business Sales Leader</p>
+                        </div>
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce print-hidden" style="animation-duration: 3s;">
+                        <div class="bg-green-100 p-2 rounded-full text-green-700">
+                            <span class="material-symbols-outlined">trending_up</span>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-500 font-bold uppercase">Recent Win</div>
+                            <div class="text-sm font-bold text-slate-900">161% Quarterly Target</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About / Core Value -->
+    <section class="py-20 bg-white border-y border-slate-100" id="about">
+        <div class="max-w-4xl mx-auto px-4 text-center fade-in-section is-visible">
+            <span class="material-symbols-outlined text-5xl text-blue-600 mb-6">psychology</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Client Transformation Expert</h2>
+            <p class="text-xl text-slate-600 leading-relaxed mb-8">
+                I don't just sell products; I build partnerships. My approach combines deep industry knowledge with consultative selling to understand the unique challenges of C-suite executives. I leverage this insight to deliver tailored telecom and security solutions that drive tangible business outcomes.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full font-medium text-sm">Strategic Account Planning</span>
+                <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full font-medium text-sm">Cross-Functional Collaboration</span>
+                <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full font-medium text-sm">Team Mentorship</span>
+                <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full font-medium text-sm">Pipeline Optimization</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="py-24 bg-slate-50" id="experience">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-section is-visible">
+                <h2 class="text-sm font-bold text-blue-600 tracking-widest uppercase mb-2">Career Journey</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Professional Experience</h3>
+            </div>
+            <div class="relative space-y-12">
+                <!-- Vertical Line -->
+                <div class="absolute left-4 md:left-1/2 md:-ml-0.5 top-0 bottom-0 w-0.5 bg-slate-200"></div>
+
+                <!-- Job 1: T-Mobile -->
+                <div class="relative timeline-item fade-in-section is-visible">
+                    <div class="md:flex items-center justify-between group">
+                        <!-- Left Content (Desktop: Date) -->
+                        <div class="hidden md:block md:w-5/12 text-right pr-8">
+                            <div class="text-lg font-bold text-slate-900">Jan 2024 - Present</div>
+                            <div class="text-slate-500 font-medium">Greater Harrisburg Area</div>
+                        </div>
+                        <!-- Center Dot -->
+                        <div class="absolute left-4 md:left-1/2 -ml-[19px] md:-ml-5 w-10 h-10 rounded-full border-4 border-white bg-pink-600 shadow-md flex items-center justify-center timeline-dot">
+                            <span class="material-symbols-outlined text-white text-sm">cell_tower</span>
+                        </div>
+                        <!-- Right Content (Card) -->
+                        <div class="ml-12 md:ml-0 md:w-5/12 pl-0 md:pl-8">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-gray-50 rounded-lg p-1 flex items-center justify-center">
+                                        <!-- T-Mobile Logo -->
+                                        <img alt="T-Mobile" class="w-full h-auto" src="https://upload.wikimedia.org/wikipedia/commons/e/e5/T-Mobile_US_Logo_2022_RGB_Magenta_on_Transparent.svg">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold text-slate-900">Account Executive</h4>
+                                        <div class="text-sm text-slate-500 font-medium">SMB Sales</div>
+                                        <div class="md:hidden text-xs text-slate-400 mt-1">Jan 2024 - Present</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-3 text-slate-600 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-green-500 text-lg mt-0.5">check_circle</span>
+                                        <span>Delivered <strong class="text-slate-900">240% revenue growth</strong> by aligning solutions with business priorities.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-green-500 text-lg mt-0.5">check_circle</span>
+                                        <span>Exceeded quarterly sales targets by <strong class="text-slate-900">161%</strong> through funnel optimization.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-blue-400 text-lg mt-0.5">handshake</span>
+                                        <span>Cultivated executive relationships expanding footprint in Harrisburg business sector.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 2: Verizon Senior Account Manager -->
+                <div class="relative timeline-item fade-in-section is-visible">
+                    <div class="md:flex items-center justify-between flex-row-reverse group">
+                        <!-- Right Content (Desktop: Date) -->
+                        <div class="hidden md:block md:w-5/12 text-left pl-8">
+                            <div class="text-lg font-bold text-slate-900">Sept 2021 - Jan 2024</div>
+                            <div class="text-slate-500 font-medium">Northern Maryland</div>
+                        </div>
+                        <!-- Center Dot -->
+                        <div class="absolute left-4 md:left-1/2 -ml-[19px] md:-ml-5 w-10 h-10 rounded-full border-4 border-white bg-red-600 shadow-md flex items-center justify-center timeline-dot">
+                            <span class="material-symbols-outlined text-white text-sm">business_center</span>
+                        </div>
+                        <!-- Left Content (Card) -->
+                        <div class="ml-12 md:ml-0 md:w-5/12 pr-0 md:pr-8">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-gray-50 rounded-lg p-1 flex items-center justify-center">
+                                        <img alt="Verizon" class="w-full h-auto" src="https://upload.wikimedia.org/wikipedia/commons/8/86/Verizon_logo_2015.svg">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold text-slate-900">Senior Account Manager</h4>
+                                        <div class="text-sm text-slate-500 font-medium">Business Sales</div>
+                                        <div class="md:hidden text-xs text-slate-400 mt-1">2021 - 2024</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-3 text-slate-600 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-blue-400 text-lg mt-0.5">group</span>
+                                        <span>Managed enterprise portfolio, delivering tailored telecom solutions.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-blue-400 text-lg mt-0.5">campaign</span>
+                                        <span>Led joint-selling initiatives with partners to expand market reach.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-green-500 text-lg mt-0.5">trending_up</span>
+                                        <span>Developed strategic account plans aligned with customer KPIs to maximize upsell.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 3: Verizon District Manager -->
+                <div class="relative timeline-item fade-in-section is-visible">
+                    <div class="md:flex items-center justify-between group">
+                        <!-- Left Content (Desktop: Date) -->
+                        <div class="hidden md:block md:w-5/12 text-right pr-8">
+                            <div class="text-lg font-bold text-slate-900">Sept 2011 - Sept 2021</div>
+                            <div class="text-slate-500 font-medium">District Leadership</div>
+                        </div>
+                        <!-- Center Dot -->
+                        <div class="absolute left-4 md:left-1/2 -ml-[19px] md:-ml-5 w-10 h-10 rounded-full border-4 border-white bg-slate-800 shadow-md flex items-center justify-center timeline-dot">
+                            <span class="material-symbols-outlined text-white text-sm">store</span>
+                        </div>
+                        <!-- Right Content (Card) -->
+                        <div class="ml-12 md:ml-0 md:w-5/12 pl-0 md:pl-8">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 bg-gray-50 rounded-lg p-1 flex items-center justify-center">
+                                        <img alt="Verizon" class="w-full h-auto" src="https://upload.wikimedia.org/wikipedia/commons/8/86/Verizon_logo_2015.svg">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold text-slate-900">Consumer Sales District Manager</h4>
+                                        <div class="text-sm text-slate-500 font-medium">10 Year Tenure</div>
+                                        <div class="md:hidden text-xs text-slate-400 mt-1">2011 - 2021</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-3 text-slate-600 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-blue-400 text-lg mt-0.5">groups</span>
+                                        <span>Directed multi-store operations with <strong class="text-slate-900">80+ team members</strong>.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-blue-400 text-lg mt-0.5">school</span>
+                                        <span>Mentored sales leaders and integrated training programs for consultative selling.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="material-symbols-outlined text-green-500 text-lg mt-0.5">verified</span>
+                                        <span>Drove cultural transformation and sales excellence across the district.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Education Grid -->
+    <section class="py-24 bg-white" id="competencies">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Skills Column -->
+                <div class="lg:col-span-2 fade-in-section is-visible">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                        <span class="w-2 h-8 bg-blue-600 rounded-full"></span>
+                        Core Competencies
+                    </h2>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <!-- Skill Card 1 -->
+                        <div class="skill-card p-6 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center text-blue-700 mb-4">
+                                <span class="material-symbols-outlined">strategy</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-2">Strategic Planning</h3>
+                            <p class="text-slate-600 text-sm">Expertise in territory management, forecasting revenue, and executing account plans aligned with long-term goals.</p>
+                        </div>
+                        <!-- Skill Card 2 -->
+                        <div class="skill-card p-6 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center text-green-700 mb-4">
+                                <span class="material-symbols-outlined">person_play</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-2">Leadership &amp; Training</h3>
+                            <p class="text-slate-600 text-sm">Proven success in recruiting, mentoring, and motivating 80+ member teams. Development of training programs.</p>
+                        </div>
+                        <!-- Skill Card 3 -->
+                        <div class="skill-card p-6 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center text-purple-700 mb-4">
+                                <span class="material-symbols-outlined">handshake</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-2">Executive Engagement</h3>
+                            <p class="text-slate-600 text-sm">Trusted advisor to C-suite stakeholders. Adept at navigating complex organizations to drive new logo acquisition.</p>
+                        </div>
+                        <!-- Skill Card 4 -->
+                        <div class="skill-card p-6 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center text-orange-700 mb-4">
+                                <span class="material-symbols-outlined">data_usage</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-lg mb-2">Sales Enablement</h3>
+                            <p class="text-slate-600 text-sm">Leveraging CRM and funnel management tools to optimize pipelines. Partner ecosystem integration.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Column -->
+                <div class="lg:col-span-1 space-y-8 fade-in-section is-visible" style="transition-delay: 100ms;">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                            <span class="w-2 h-8 bg-slate-300 rounded-full"></span>
+                            Education
+                        </h2>
+                        <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden group">
+                            <!-- Decorative Circle -->
+                            <div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 bg-white rounded-lg p-2 mb-6">
+                                    <img alt="Evangel University" class="w-full h-full object-contain" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Evangel_univ_eu_logo.png">
+                                </div>
+                                <div class="text-sm font-bold text-blue-300 uppercase tracking-wider mb-2">Graduated 2011</div>
+                                <h3 class="text-2xl font-bold mb-1">Bachelor of Business Administration</h3>
+                                <p class="text-slate-300">Evangel University</p>
+                                <p class="text-slate-400 text-sm mt-1">Springfield, Missouri</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quick Contact Card -->
+                    <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 print-hidden">
+                        <h3 class="font-bold text-blue-900 mb-3">Looking for a leader?</h3>
+                        <p class="text-blue-800 text-sm mb-4">I am ready to bring strategic transformation to your organization.</p>
+                        <a class="text-blue-600 font-bold text-sm hover:underline flex items-center gap-1" href="#contact">
+                            Contact Me Now <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Divider -->
+    <div class="h-64 relative overflow-hidden print-hidden">
+        <img alt="Network" class="w-full h-full object-cover" src="maplippy.jpg">
+        <div class="absolute inset-0 bg-blue-900/80 flex items-center justify-center">
+            <h2 class="text-white text-3xl md:text-5xl font-bold px-4 text-center">Ready to Drive Results.</h2>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="py-24 bg-white" id="contact">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in-section is-visible">
+                <span class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
+                    <span class="material-symbols-outlined">mail</span>
+                </span>
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Get in Touch</h2>
+                <p class="text-slate-600 text-lg">Available for opportunities in the Greater Harrisburg Area and beyond.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 fade-in-section is-visible">
+                <!-- Direct Contact Info -->
+                <div class="space-y-6">
+                    <a class="flex items-center gap-4 p-5 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-all group" href="mailto:bryan.lippy@gmail.com">
+                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 group-hover:text-blue-700 text-slate-500 transition-colors">
+                            <span class="material-symbols-outlined">email</span>
+                        </div>
+                        <div>
+                            <div class="text-sm text-slate-500 font-medium">Email</div>
+                            <div class="text-lg font-bold text-slate-900">bryan.lippy@gmail.com</div>
+                        </div>
+                    </a>
+                    <a class="flex items-center gap-4 p-5 rounded-xl border border-slate-200 hover:border-green-500 hover:bg-green-50 transition-all group" href="tel:7178585155">
+                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center group-hover:bg-green-200 group-hover:text-green-700 text-slate-500 transition-colors">
+                            <span class="material-symbols-outlined">call</span>
+                        </div>
+                        <div>
+                            <div class="text-sm text-slate-500 font-medium">Phone</div>
+                            <div class="text-lg font-bold text-slate-900">717.858.5155</div>
+                        </div>
+                    </a>
+                    <a class="flex items-center gap-4 p-5 rounded-xl border border-slate-200 hover:border-blue-700 hover:bg-blue-50 transition-all group" href="https://linkedin.com/in/bryanlippy" target="_blank">
+                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 group-hover:text-blue-900 text-slate-500 transition-colors">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                        </div>
+                        <div>
+                            <div class="text-sm text-slate-500 font-medium">LinkedIn</div>
+                            <div class="text-lg font-bold text-slate-900">/in/bryanlippy</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Simple Contact Form Visual -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 print-hidden" id="contact-form-container">
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you for your message! This is a demo form.');">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Name</label>
+                            <input class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Your Name" type="text">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                            <input class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="you@company.com" type="email">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+                            <textarea class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Hi Bryan, I'd like to discuss..." rows="3"></textarea>
+                        </div>
+                        <button class="w-full py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors shadow-lg" type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 print-hidden">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center gap-2 mb-4">
+                <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">BL</div>
+                <span class="text-white font-bold text-lg">Bryan Lippy</span>
+            </div>
+            <p class="text-sm">© 2025 Bryan Lippy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Bottom Right Export FAB - Immediate Download -->
+    <div class="fixed bottom-8 right-8 z-50 print-hidden" id="export-fab">
+        <button class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-blue-700 hover:scale-110 transition-all focus:outline-none focus:ring-4 focus:ring-blue-300" onclick="exportSourceCode()" title="Download Source Code">
+            <span class="material-symbols-outlined text-3xl">code</span>
+        </button>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Intersection Observer for Fade-in Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Function to export Source Code to TXT
+        function exportSourceCode() {
+            // Get the entire HTML source code including the DOCTYPE
+            const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+            
+            // Create a blob with the content
+            const blob = new Blob([htmlContent], { type: 'text/plain' });
+            
+            // Create download link
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'website_source_code.txt';
+            
+            // Trigger download
+            document.body.appendChild(a);
+            a.click();
+            
+            // Cleanup
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
